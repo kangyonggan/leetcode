@@ -32,12 +32,11 @@ public class _0300Solution {
             sb.append(DATA.charAt(random.nextInt(DATA.length() - 1)));
         }
 
-        long beginTime = System.currentTimeMillis();
+        LeetCodeUtil.endTime();
         int len = new _0300Solution().lengthOfLongestSubstring(sb.toString());
-        long endTime = System.currentTimeMillis();
         System.out.println(len);
 
-        System.out.println("耗时：" + (endTime - beginTime) + " ms");
+        System.out.println("耗时：" + LeetCodeUtil.endTime() + " ms");
 
         System.out.println(new _0300Solution().lengthOfLongestSubstring("abcabcbb"));
         System.out.println(new _0300Solution().lengthOfLongestSubstring("bbbbb"));

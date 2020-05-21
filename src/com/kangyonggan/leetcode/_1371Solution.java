@@ -1,6 +1,5 @@
 package com.kangyonggan.leetcode;
 
-import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -35,12 +34,11 @@ public class _1371Solution {
             sb.append(DATA.charAt(random.nextInt(DATA.length() - 1)));
         }
 
-        long beginTime = System.currentTimeMillis();
+        LeetCodeUtil.beginTime();
         int len = new _1371Solution().findTheLongestSubstring(sb.toString());
-        long endTime = System.currentTimeMillis();
         System.out.println(len);
 
-        System.out.println("耗时：" + (endTime - beginTime) + " ms");
+        System.out.println("耗时：" + LeetCodeUtil.endTime() + " ms");
     }
 
     public int findTheLongestSubstring(String s) {
