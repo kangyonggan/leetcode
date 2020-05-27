@@ -32,7 +32,7 @@ public class _0974Solution {
         for (int num : A) {
             sum += num;
             int mod = Math.floorMod(sum, K);
-            modCnt[mod] += 1;
+            modCnt[mod]++;
         }
 
         int result = 0;
