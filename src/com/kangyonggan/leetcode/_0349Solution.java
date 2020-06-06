@@ -1,7 +1,5 @@
 package com.kangyonggan.leetcode;
 
-import com.sun.tools.javac.util.Assert;
-
 /**
  * 394. 字符串解码
  * 给定一个经过编码的字符串，返回它解码后的字符串。
@@ -19,10 +17,10 @@ public class _0349Solution {
 
     public static void main(String[] args) {
         _0349Solution solution = new _0349Solution();
-        Assert.check("asas".equals(solution.decodeString("2[as]")));
-        Assert.check("aaabcbc".equals(solution.decodeString("3[a]2[bc]")));
-        Assert.check("accaccacc".equals(solution.decodeString("3[a2[c]]")));
-        Assert.check("abcabccdcdcdef".equals(solution.decodeString("2[abc]3[cd]ef")));
+        System.out.println(solution.decodeString("2[as]"));
+        System.out.println(solution.decodeString("3[a]2[bc]"));
+        System.out.println(solution.decodeString("3[a2[c]]"));
+        System.out.println(solution.decodeString("2[abc]3[cd]ef"));
     }
 
     public String decodeString(String s) {

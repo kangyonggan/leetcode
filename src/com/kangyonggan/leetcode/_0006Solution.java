@@ -1,7 +1,5 @@
 package com.kangyonggan.leetcode;
 
-import com.sun.tools.javac.util.Assert;
-
 /**
  * 6. Z 字形变换
  * 将一个给定字符串根据给定的行数，以从上往下、从左到右进行 Z 字形排列。
@@ -33,7 +31,6 @@ public class _0006Solution {
         System.out.println("结果：" + result);
         // LDREOEIIECIHNTSG
         // LDREOEIIEDIRNTSG
-        Assert.check("A".equals(result));
     }
 
     public String convert(String s, int numRows) {
