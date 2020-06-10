@@ -60,7 +60,25 @@ public class _0010Solution {
     }
 
     public boolean isMatch(String s, String p) {
-        // TODO
+        int sIndex = 0;
+        char prevChar = '0';
+        for (int pIndex = 0; pIndex < p.length(); pIndex++) {
+            char ch = p.charAt(pIndex);
+            if (ch >= 'a' && ch <= 'z') {
+                if (sIndex >= s.length() || s.charAt(sIndex) != ch) {
+                    return false;
+                }
+            } else if (ch == '*') {
+                boolean isMatch = false;
+                for (int i = pIndex; i < s.length(); i++) {
+//                    if () {
+//
+//                    }
+                    // TODO
+                }
+            }
+            prevChar = ch;
+        }
         return true;
     }
 }
