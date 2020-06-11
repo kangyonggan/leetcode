@@ -57,28 +57,53 @@ public class _0010Solution {
         System.out.println(solution.isMatch("ab", ".*"));// true
         System.out.println(solution.isMatch("aab", "c*a*b"));// true
         System.out.println(solution.isMatch("mississippi", "mis*is*p*."));// false
+        System.out.println(solution.isMatch("aaa", ".*"));// true
+        System.out.println(solution.isMatch("a", "ab"));// true
+        System.out.println(solution.isMatch("ab", ".*c"));// false
     }
 
     public boolean isMatch(String s, String p) {
-        int sIndex = 0;
-        char prevChar = '0';
-        for (int pIndex = 0; pIndex < p.length(); pIndex++) {
-            char ch = p.charAt(pIndex);
-            if (ch >= 'a' && ch <= 'z') {
-                if (sIndex >= s.length() || s.charAt(sIndex) != ch) {
+        // TODO
+        return isMatch(s, p, 0, 0);
+    }
+
+    private boolean isMatch(String s, String p, int sStart, int pStart) {
+        if (sStart == s.length()) {
+            return true;
+        }
+        if (pStart >= p.length()) {
+            return false;
+        }
+        char chS = s.charAt(sStart);
+        char chP = p.charAt(pStart);
+        boolean isAny = chP == '.';
+        if (chP >= 'a' && chP <= 'z' || isAny) {
+            if (pStart + 1 < p.length() && p.charAt(pStart + 1) == '*') {
+                if ((chP == chS || isAny) && pStart + 2 <= p.length()) {
+                    for (int i = sStart; i < s.length(); i++) {
+                        if (chP == s.charAt(i) || isAny) {
+                            if (isMatch(s, p, i + 1, pStart + 2)) {
+                                return true;
+                            }
+                            isAny = false;
+                            chP = chS;
+                        } else {
+                            break;
+                        }
+                    }
+                } else {
+                    // * == 0
+                    return isMatch(s, p, sStart, pStart + 2);
+                }
+            } else {
+                if (chP == chS || isAny) {
+                    return isMatch(s, p, sStart + 1, pStart + 1);
+                } else {
                     return false;
                 }
-            } else if (ch == '*') {
-                boolean isMatch = false;
-                for (int i = pIndex; i < s.length(); i++) {
-//                    if () {
-//
-//                    }
-                    // TODO
-                }
             }
-            prevChar = ch;
         }
-        return true;
+
+        return false;
     }
 }
